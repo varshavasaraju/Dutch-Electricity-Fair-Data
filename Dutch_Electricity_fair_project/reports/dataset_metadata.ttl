@@ -6,6 +6,7 @@
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <http://schema.org/> .
 
 # =============================================================================
 # Dataset Metadata: Coteq Electricity 2013
@@ -13,10 +14,10 @@
 # Note: Unknown or unverified attributes are explicitly marked rather than guessed.
 # =============================================================================
 
-<http://example.org/dataset/coteq-electricity-2013>
+<https://w3id.org/FAIR-course-UT/2026/group28/dataset/coteq-electricity-2013>
     a dcat:Dataset ;
-    # Identifier (Placeholder URI pending persistent DOI / handle registration)
-    dcterms:identifier "http://example.org/dataset/coteq-electricity-2013"^^xsd:anyURI ;
+    # Identifier registered via persistent w3id URLs
+    dcat:landingPage <https://github.com/varshavasaraju/Dutch-Electricity-Fair-Data/tree/main/Dutch_Electricity_fair_project> ;
     rdfs:comment "Identifier is a local placeholder URI (example.org) pending registration with a persistent identifier service (e.g. Zenodo DOI or w3id.org)."@en ;
 
     # Descriptive Metadata
@@ -49,11 +50,7 @@
         rdfs:comment "FAIR data researcher responsible for semantic ontology design in Protégé and RDF transformation in OpenRefine."@en ;
     ] ;
     # Publisher of the original CSV distribution: Marked explicitly as unverified
-    dcterms:publisher [
-        a foaf:Agent ;
-        foaf:name "Unverified / Unknown" ;
-        rdfs:comment "The primary open data portal or publishing institution distributing the original CSV dataset is unverified from the local files."@en ;
-    ] ;
+    dcterms:publisher <https://www.kaggle.com/datasets/lucabasa/dutch-energy> ;
 
     # Dates
     dcterms:created "2026-10-23"^^xsd:date ; # Date of OpenRefine RDF export
@@ -62,39 +59,35 @@
     rdfs:comment "The original publication date of the raw CSV by Coteq is unverified from the source file."@en ;
 
     # Licence: Explicitly unverified, NOT assumed without evidence
-    dcterms:license [
-        a dcterms:LicenseDocument ;
-        rdfs:label "Unverified / Unknown Licence" ;
-        rdfs:comment "No formal licence declaration (e.g., CC0, CC-BY, ODbL) was supplied with the raw CSV archive. A permissive licence is NOT assumed without verifiable evidence from the rights holder."@en ;
-    ] ;
+    dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
 
     # Provenance derivation
-    prov:wasDerivedFrom <http://example.org/dataset/coteq-electricity-2013/distribution/csv> ;
+    prov:wasDerivedFrom <https://w3id.org/FAIR-course-UT/2026/group28/dataset/coteq-electricity-2013/distribution/csv> ;
 
     # Conformance & Linked Schemas
-    dcterms:conformsTo <http://example.org/dutch-energy-ontology> ;
+    dcterms:conformsTo <https://w3id.org/FAIR-course-UT/2026/group28/dutch-energy-ontology> ;
 
     # Distributions
-    dcat:distribution <http://example.org/dataset/coteq-electricity-2013/distribution/ttl> ;
-    dcat:distribution <http://example.org/dataset/coteq-electricity-2013/distribution/csv> ;
+    dcat:distribution <https://w3id.org/FAIR-course-UT/2026/group28/dataset/coteq-electricity-2013/distribution/ttl> ;
+    dcat:distribution <https://w3id.org/FAIR-course-UT/2026/group28/dataset/coteq-electricity-2013/distribution/csv> ;
 
     # Validation relations
     dcat:qualifiedRelation [
         a dcat:Relationship ;
-        dcat:hadRole <http://example.org/roles/validationShape> ;
-        dcterms:relation <http://example.org/coteq/shapes> ;
+        dcat:hadRole <https://w3id.org/FAIR-course-UT/2026/group28/roles/validationShape> ;
+        dcterms:relation <https://w3id.org/FAIR-course-UT/2026/group28/coteq/shapes> ;
     ] ;
     dcat:qualifiedRelation [
         a dcat:Relationship ;
-        dcat:hadRole <http://example.org/roles/validationReport> ;
-        dcterms:relation <http://example.org/dataset/coteq-electricity-2013/validation-report> ;
+        dcat:hadRole <https://w3id.org/FAIR-course-UT/2026/group28/roles/validationReport> ;
+        dcterms:relation <https://w3id.org/FAIR-course-UT/2026/group28/dataset/coteq-electricity-2013/validation-report> ;
     ] .
 
 
 # =============================================================================
 # Distribution 1: RDF Turtle Semantic Distribution
 # =============================================================================
-<http://example.org/dataset/coteq-electricity-2013/distribution/ttl>
+<https://w3id.org/FAIR-course-UT/2026/group28/dataset/coteq-electricity-2013/distribution/ttl>
     a dcat:Distribution ;
     dcterms:title "RDF Turtle Distribution of Coteq Electricity 2013 Data"@en ;
     dcterms:description "Transformed RDF graph serialized in Turtle syntax containing 2,503 energy records, measurements, street, and location nodes."@en ;
@@ -102,14 +95,14 @@
     dcterms:format "text/turtle" ;
     dcat:downloadURL <file:///rdf/coteq_electricity_2013_csv%20(1).ttl> ;
     dcat:byteSize 3323862 ;
-    dcterms:conformsTo <http://example.org/dutch-energy-ontology> ;
+    dcterms:conformsTo <https://w3id.org/FAIR-course-UT/2026/group28/dutch-energy-ontology> ;
     dcterms:issued "2026-10-23"^^xsd:date .
 
 
 # =============================================================================
 # Distribution 2: Raw CSV Source Distribution
 # =============================================================================
-<http://example.org/dataset/coteq-electricity-2013/distribution/csv>
+<https://w3id.org/FAIR-course-UT/2026/group28/dataset/coteq-electricity-2013/distribution/csv>
     a dcat:Distribution ;
     dcterms:title "Raw CSV Source Distribution of Coteq Electricity 2013 Data"@en ;
     dcterms:description "Original tabular source file containing 2,503 records of electricity consumption in Overijssel."@en ;
@@ -124,19 +117,19 @@
 # =============================================================================
 # Associated Resources (Ontology, Shapes, Report)
 # =============================================================================
-<http://example.org/dutch-energy-ontology>
+<https://w3id.org/FAIR-course-UT/2026/group28/dutch-energy-ontology>
     a owl:Ontology ;
     dcterms:title "Dutch Electricity Domain Ontology"@en ;
     dcterms:description "Domain ontology defining classes (EnergyRecord, EnergyMeasurement, Location, Street, NetworkManager) and properties for regional electricity grid data."@en ;
     rdfs:seeAlso <file:///ontology/dutch_electricity_ontology.owx> .
 
-<http://example.org/coteq/shapes>
+<https://w3id.org/FAIR-course-UT/2026/group28/coteq/shapes>
     a rdfs:Resource ;
     dcterms:title "SHACL Shapes for Coteq Electricity Dataset"@en ;
     dcterms:description "SHACL constraint shapes specifying cardinality, datatype, regex, closed shapes, and SPARQL business rules."@en ;
     rdfs:seeAlso <file:///shacl/coteq_electricity_shapes.ttl> .
 
-<http://example.org/dataset/coteq-electricity-2013/validation-report>
+<https://w3id.org/FAIR-course-UT/2026/group28/dataset/coteq-electricity-2013/validation-report>
     a dcat:Distribution ;
     dcterms:title "SHACL Validation Report for Coteq Electricity 2013 Dataset"@en ;
     dcterms:description "Validation outcome report confirming Conforms: True across 46,236 triples and 2,503 records with 0 violations."@en ;
