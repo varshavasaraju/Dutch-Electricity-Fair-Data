@@ -7,7 +7,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix owl:    <http://www.w3.org/2002/07/owl#> .
 
-<https://w3id.org/FAIR-course-UT/2026/group28/dataset/coteq-electricity-2013>
+<https://w3id.org/FAIR-course-UT/2026/group28/data>
     a dcat:Dataset ;
     dct:identifier "https://w3id.org/FAIR-course-UT/2026/group28/data"^^xsd:anyURI ;
     dct:isVersionOf <https://w3id.org/FAIR-course-UT/2026/group28/data/original> ;
@@ -15,8 +15,7 @@
     dct:description "Tabular electricity consumption records collected by regional network manager Coteq Netbeheer B.V. for 2013 across municipalities in Overijssel, Netherlands. Transformed from raw CSV into RDF (Turtle) using OpenRefine according to the Dutch Electricity Ontology, comprising 2,503 energy records and 46,236 triples."@en ;
     dcat:keyword "electricity"@en , "energy consumption"@en , "smart meters"@en , "network operator"@en , "Coteq"@en , "Netbeheer"@nl ;
     dct:issued "2026-10-24"^^xsd:date ;
-    dct:creator [ a foaf:Person ; foaf:name "Varsha" ] ,
-    dct:creator [ a foaf:Person ; foaf:name "Joshita" ] ;
+    dct:creator [ a foaf:Person ; foaf:name "Mahesh" ] ;
     dct:publisher <https://www.kaggle.com/datasets/lucabasa/dutch-energy> ;
     dcat:landingPage <https://github.com/varshavasaraju/Dutch-Electricity-Fair-Data/tree/main/Dutch_Electricity_fair_project> ;
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
@@ -25,8 +24,7 @@
     dct:source <https://www.kaggle.com/datasets/lucabasa/dutch-energy> ;
     prov:wasDerivedFrom <https://www.kaggle.com/datasets/lucabasa/dutch-energy> ;
     dct:conformsTo <https://w3id.org/FAIR-course-UT/2026/group28/dutch-energy-ontology> ;
-    prov:wasAttributedTo [ a prov:Agent ; foaf:name "Varsha" ] ,
-    prov:wasAttributedTo [ a prov:Agent ; foaf:name "Joshita" ] ;
+    prov:wasAttributedTo [ a prov:Agent ; foaf:name "Mahesh" ] ;
     prov:generatedAtTime "2026-10-24T12:00:00Z"^^xsd:dateTime ;
     ont:observationType "Energy Consumption Record" ;
     schema:variableMeasured "connection count", "active connections %", "delivery %", "low‑tariff consumption %", "smart meter %", "annual consumption (kWh)", "municipality", "street" ;
@@ -51,3 +49,13 @@
     dct:format "text/turtle" ;
     dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ;
     dcat:byteSize "3323862"^^xsd:nonNegativeInteger .
+
+# Contributors (as requested)
+<https://w3id.org/FAIR-course-UT/2026/group28/data>
+    dct:contributor [ a foaf:Person ; foaf:name "Varsha" ] ;
+    dct:contributor [ a foaf:Person ; foaf:name "Joshita" ] .
+
+# Contact points (official emails)
+<https://w3id.org/FAIR-course-UT/2026/group28/data>
+    dcat:contactPoint [ a schema:ContactPoint ; schema:email "vasaraju686@gmail.com" ; schema:contactType "technical" ] ;
+    dcat:contactPoint [ a schema:ContactPoint ; schema:email "joshitacarella@gmail.com" ; schema:contactType "technical" ] .
