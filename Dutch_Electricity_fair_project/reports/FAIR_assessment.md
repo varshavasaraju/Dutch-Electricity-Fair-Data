@@ -1,84 +1,82 @@
-# FAIR Assessment Report: Dutch Electricity Dataset (Coteq 2013)
+# FAIR Assessment Report Summary
 
-**Assessment Date**: 2026-10-24  
-**Evaluator**: FAIR Data Assistant  
-**Dataset Target**: `rdf/coteq_electricity_2013_csv (1).ttl`  
-**Ontology Target**: `ontology/dutch_electricity_ontology.owx`  
-**Metadata Target**: `reports/dataset_metadata.ttl`  
-**Validation Target**: `reports/shacl_validation_report.txt`  
+## 1. Overview
 
----
+The FAIR assessment report evaluates the FAIR compliance of the **Dutch Electricity Consumption Dataset – Coteq Netbeheer (2013)**. The assessment was performed using F-UJI, with metrics version 0.8 and software version 4.0.1, on 26 October 2026.
 
-## Executive Summary
+The dataset contains electricity consumption records collected by Coteq Netbeheer B.V. across municipalities in Overijssel, the Netherlands, for the year 2013. The original CSV data was transformed into RDF in Turtle format using OpenRefine and the Dutch Electricity Ontology.
 
-This assessment evaluates the degree to which the Coteq Electricity 2013 semantic dataset complies with the **FAIR Data Principles** (Findable, Accessible, Interoperable, Reusable). 
+The metadata describes 2,503 energy records and 46,236 RDF triples.
 
-> [!NOTE]
-> This assessment distinguishes between **completed verifications** based on concrete workspace evidence and **remaining gaps / recommendations**. The dataset is currently maintained in a local research workspace; therefore, it is **not yet publicly accessible or fully FAIR**. Significant progress has been achieved in semantic interoperability (RDF, OWL, and SHACL validation), while principal gaps remain in persistent identification, public web dereferencing, external authority linking, and formal licensing.
+## 2. Overall FAIR Assessment Results
 
----
+The dataset achieved an overall FAIR score of **92.31% (24 out of 26 points)**.
 
-## 1. Findable
+**FAIR Score Summary**
 
-| Principle | Status | Implementation & Evidence | Remaining Gaps | Specific Next Actions |
-| :--- | :--- | :--- | :--- | :--- |
-| **F1: Persistent Identifier** | Partial | Placeholder URI `<http://example.org/dataset/coteq-electricity-2013>` assigned in [`reports/dataset_metadata.ttl`](file:///C:/Users/mahesh/Desktop/Dutch_Electricity_fair_project/reports/dataset_metadata.ttl). Local entity IRIs follow structured patterns (e.g. `coteq/record/...`). | `example.org` is a placeholder domain; no persistent identifier (DOI, ARK, or w3id.org PURL) is currently registered. | Register a persistent identifier (e.g. Zenodo DOI or w3id.org namespace redirect) upon repository publication. |
-| **F2: Rich Metadata** | Complete (Local) | Created DCAT 2.0 and Dublin Core Terms metadata in [`reports/dataset_metadata.ttl`](file:///C:/Users/mahesh/Desktop/Dutch_Electricity_fair_project/reports/dataset_metadata.ttl) (84 triples) specifying title, description, temporal (2013), spatial coverage, theme, language, and distributions. | Primary publisher open data portal URL and initial CSV release date are unverified from source files. | Verify original publishing platform (e.g. data.overheid.nl or Coteq portal) and update `dcterms:publisher`. |
-| **F3: Metadata Includes Identifier** | Complete | [`reports/dataset_metadata.ttl`](file:///C:/Users/mahesh/Desktop/Dutch_Electricity_fair_project/reports/dataset_metadata.ttl) explicitly states `dcterms:identifier` pointing to the dataset URI, and links directly to distributions. | Identifier is currently local/placeholder. | Replace placeholder URI with persistent URI once registered. |
-| **F4: Searchable Resource** | Not Implemented | Files reside on local filesystem in `Dutch_Electricity_fair_project`. | Metadata is not indexed in any external search engine or dataset registry (e.g., Google Dataset Search, Datahub, Zenodo). | Deposit metadata in an open data repository or register in a CKAN catalog. |
+| FAIR principle | Score | Percentage |
+|:--------------|:-----:|:-----------:|
+| Findable      | 5/7   | 71.43%      |
+| Accessible    | 7/7   | 100%        |
+| Interoperable | 6/6   | 100%        |
+| Reusable      | 6/6   | 100%        |
+| **Overall FAIR score** | **24/26** | **92.31%** |
 
----
+The results indicate that the dataset performs well in accessibility, interoperability, and reusability. Findability is the main area requiring improvement.
 
-## 2. Accessible
+## 3. Key Achievements
 
-| Principle | Status | Implementation & Evidence | Remaining Gaps | Specific Next Actions |
-| :--- | :--- | :--- | :--- | :--- |
-| **A1: Retrievable via Standard Protocol** | Partial (Local only) | Data and metadata files are serialized in standard W3C Turtle (`text/turtle`) and XML formats, accessible via local file systems. | Not retrievable over standard internet protocols (HTTPS/HTTP). Local IRIs under `http://example.org/` do not dereference. | Deploy data and metadata to a web server or repository supporting HTTPS content negotiation. |
-| **A1.1: Open, Free Protocol** | Planned | Target distribution protocol is HTTP/HTTPS. | Workspace files are currently local only. | Host on open infrastructure (e.g., GitHub Pages, Zenodo, institutional repository). |
-| **A1.2: Authentication & Authorization** | Not Applicable / Open | Data consists of aggregated public utility consumption; no sensitive personal data or authentication requirements. | Formal open access statement not yet codified in repository policy. | Explicitly note open, unauthenticated access policy in publication landing page. |
-| **A2: Persistent Metadata** | Complete (Design) | Metadata is completely decoupled from the data in [`reports/dataset_metadata.ttl`](file:///C:/Users/mahesh/Desktop/Dutch_Electricity_fair_project/reports/dataset_metadata.ttl). | Metadata persistence is only as durable as the local disk until deposited. | Ensure selected archive guarantees persistent metadata preservation even if data is archived/moved. |
+### Findability
 
----
+The metadata includes a persistent identifier based on the w3id.org namespace, a dataset title, creator information, publication date, keywords, a description, and links to the original CSV and transformed RDF files.
 
-## 3. Interoperable
+The metadata identifier resolves to the published Turtle metadata file, and the assessment successfully retrieved both the metadata and the linked data files.
 
-| Principle | Status | Implementation & Evidence | Remaining Gaps | Specific Next Actions |
-| :--- | :--- | :--- | :--- | :--- |
-| **I1: Knowledge Representation Language** | Complete | Full RDF/Turtle representation ([`rdf/coteq_electricity_2013_csv (1).ttl`](file:///C:/Users/mahesh/Desktop/Dutch_Electricity_fair_project/rdf/coteq_electricity_2013_csv%20(1).ttl)) with 46,236 triples; formal OWL 2 ontology in [`ontology/dutch_electricity_ontology.owx`](file:///C:/Users/mahesh/Desktop/Dutch_Electricity_fair_project/ontology/dutch_electricity_ontology.owx); SHACL shapes in [`shacl/coteq_electricity_shapes.ttl`](file:///C:/Users/mahesh/Desktop/Dutch_Electricity_fair_project/shacl/coteq_electricity_shapes.ttl). | Classes and predicates belong to a custom domain namespace (`http://example.org/dutch-energy-ontology#`) rather than common international vocabularies. | Map domain concepts to standard energy vocabularies (e.g. SAREF, SAREF4ENER, Schema.org). |
-| **I2: FAIR Vocabularies** | Partial | Metadata uses standard DCAT, Dublin Core Terms, and PROV-O. Domain ontology is modeled in OWL. | The custom ontology is not published with dereferenceable terms or registered in Linked Open Vocabularies (LOV). | Generate HTML documentation (e.g. with Widoco) and publish the ontology under a stable PURL namespace. |
-| **I3: Qualified References** | Complete (Internal) / Partial (External) | Strong internal relational modeling: `EnergyRecord` links to `EnergyMeasurement`, `Location`, `Street`, and `NetworkManager`. Metadata links to ontology, shapes, and raw CSV. | Entities (streets, municipalities, postal codes) are not linked to external knowledge graphs like Dutch BAG (Basisregistratie Adressen en Gebouwen) or Wikidata. | Add `owl:sameAs` or `rdfs:seeAlso` links connecting municipalities and streets to Dutch BAG and Wikidata URIs. |
+### Accessibility
 
----
+The assessment confirmed that the metadata and data could be retrieved through HTTPS. The metadata also identifies the dataset as publicly accessible and provides direct links to its CSV and RDF distributions.
 
-## 4. Reusable
+### Interoperability
 
-| Principle | Status | Implementation & Evidence | Remaining Gaps | Specific Next Actions |
-| :--- | :--- | :--- | :--- | :--- |
-| **R1: Plurality of Relevant Attributes** | Complete | Data contains 2,503 records with granular metrics: connection count, active connections %, delivery %, low-tariff consumption %, smart meter %, and annual consumption. | Physical units of measurement (kWh) are not formally declared with unit ontologies (e.g., QUDT or OM). | Annotate energy measurement properties with unit references (e.g., `qudt:unit unit:KiloW-HR`). |
-| **R1.1: Clear Data Licence** | **Critical Gap** | Explicitly documented as **Unverified / Unknown** in [`reports/dataset_metadata.ttl`](file:///C:/Users/mahesh/Desktop/Dutch_Electricity_fair_project/reports/dataset_metadata.ttl). A licence was **not** assumed without evidence. | Without an explicit, legally valid licence, third parties cannot legally reuse, redistribute, or build on the data. | Inquire with Coteq Netbeheer or source provider to determine exact licensing terms (e.g., CC-BY 4.0 or Open Data licence). |
-| **R1.2: Detailed Provenance** | Substantial | Derivation path documented: `data/raw/coteq_electricity_2013.csv` $\rightarrow$ OpenRefine RDFTransform $\rightarrow$ `rdf/coteq_electricity_2013_csv (1).ttl`; modeling via Protégé; validation via pySHACL. | Transformation steps are preserved in JSON template but not serialized as a formal PROV-O activity graph. | Export formal PROV-O execution traces representing OpenRefine cleaning and transformation activities. |
-| **R1.3: Community Standards Compliance** | Complete | Structural, datatype, cardinality, and SPARQL business rules validated using W3C SHACL ([`reports/shacl_validation_report.txt`](file:///C:/Users/mahesh/Desktop/Dutch_Electricity_fair_project/reports/shacl_validation_report.txt)). Conformance result: `True` (0 violations). | Data model is customized rather than conforming to IEC Common Information Model (CIM) or national energy data exchange standards. | Evaluate alignment with IEC 61968 / IEC 61970 standards for utility data exchanges. |
+The metadata is represented using RDF and can be retrieved through content negotiation in RDF and JSON-LD formats. It uses recognized semantic vocabularies, including DCAT, Dublin Core, Schema.org, and PROV-related namespaces, supporting structured and machine-readable descriptions.
 
----
+### Data Modeling Details – Literal vs Entity Linking
 
-## 5. Summary & Action Plan
+| CSV Column | RDF Property | Treated As |
+|------------|--------------|-----------|
+| net_manager | de:managedBy | Entity‑Link (NetworkManager) |
+| purchase_area | de:hasPurchaseArea | Entity‑Link |
+| street | de:hasStreet | Entity‑Link |
+| zipcode_from | de:zipCodeFrom | Literal (xsd:string) – part of Location IRI |
+| zipcode_to | de:zipCodeTo | Literal (xsd:string) – part of Location IRI |
+| city | de:cityName | Literal (xsd:string) – can be linked to City entity |
+| num_connections | de:numberOfConnections | Literal (xsd:int) |
+| delivery_perc | de:deliveryPercentage | Literal (xsd:double) |
+| perc_of_active_connections | de:activeConnectionsPercentage | Literal (xsd:double) |
+| type_conn_perc | de:typeConnectionPercentage | Literal (xsd:double) |
+| type_of_connection | de:hasConnectionType | Entity‑Link (ConnectionType) |
+| annual_consume | de:annualConsumption | Literal (xsd:double) |
+| annual_consume_lowtarif_perc | de:annualLowTariffPercentage | Literal (xsd:double) |
+| smartmeter_perc | de:smartMeterPercentage | Literal (xsd:double) |
 
-```mermaid
-flowchart TD
-    A["Current Local State: Strong Semantic Baseline (RDF + OWL + SHACL)"] --> B["Priority 1: Legal Reusability"]
-    A --> C["Priority 2: Persistent Findability"]
-    A --> D["Priority 3: Web Accessibility"]
-    A --> E["Priority 4: Semantic Linking"]
+### Reusability
 
-    B --> B1["Verify and attach explicit licence (e.g. CC-BY 4.0)"]
-    C --> C1["Register Persistent Identifier (w3id.org / Zenodo DOI)"]
-    D --> D1["Publish repository online with HTTPS content negotiation"]
-    E --> E1["Link streets/cities to Dutch BAG & Wikidata"]
-    E --> E2["Map ontology properties to SAREF4ENER & QUDT units"]
-```
+The metadata includes a license reference to Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0), public access information, source references, and a relationship to the original dataset. These details help users understand the dataset's provenance and reuse conditions.
 
-### Key Recommendations
-1. **Clarify Licence (Highest Priority)**: Contact the data provider to confirm licensing terms.
-2. **Assign Persistent Identifier**: Replace `http://example.org/` placeholders with permanent w3id.org PURLs or a Zenodo DOI.
-3. **External Linking**: Enhance interoperability by linking Dutch postcodes and street names to official Dutch Kadaster BAG registries.
-4. **Publish Documentation**: Generate HTML documentation for the ontology and host it publicly.
+## 4. Issues Identified
+
+Despite the high overall score, the assessment identified two main areas for improvement.
+
+1. **Search engine indexing:** The F4 assessment failed because the metadata was not detected through the tested search-engine-oriented mechanisms, such as embedded Schema.org or DCAT metadata in HTML, JSON-LD in HTML, RDFa, or microdata.
+
+2. **Persistent identifier for the data:** The metadata identifier was recognized as a resolvable w3id identifier, but the assessment did not recognize a registered persistent identifier for the data itself under the relevant checks. The data files remain retrievable through their URLs.
+
+These findings suggest that the dataset is accessible and well described, but its discoverability through general search engines and the persistent identification of the data itself could be improved.
+
+## 5. Conclusion
+
+The FAIR assessment demonstrates that the Dutch Electricity Consumption Dataset has a strong FAIR foundation, achieving 92.31% overall. The use of structured metadata, persistent metadata identification, HTTPS access, RDF serialization, established semantic vocabularies, and explicit licensing contributes to its FAIR compliance.
+
+Future improvements should focus on making the metadata discoverable through search-engine indexing mechanisms and ensuring that the data itself has a recognized, persistent identifier. Addressing these issues would strengthen the dataset's findability and improve its long-term usability and discoverability.
+
+*Assessment source: F-UJI FAIR assessment JSON report generated on 26 October 2026, using metrics version 0.8.*
