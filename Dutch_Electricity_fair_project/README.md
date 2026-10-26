@@ -162,6 +162,9 @@ A comprehensive assessment is available in [`reports/FAIR_assessment.md`](file:/
 ### Step 1: Activate Environment & Verify Packages
 
 ```powershell
+# Allow script execution for this session
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+
 # Activate existing virtual environment
 .\.venv\Scripts\Activate.ps1
 
